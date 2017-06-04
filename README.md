@@ -1,5 +1,8 @@
 # GitWorkshop
-Sample Repository to explain how to work with Git
+Sample Repository to explain how to work with Git.
+
+There is s continuous integration implemented, which publishes the master branch to http://gitworkshopnodeservice.azurewebsites.net/
+You can check the deployed version by using the following call:  http://gitworkshopnodeservice.azurewebsites.net/version
 
 ## Feature requests
 

@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Sample Site</title>
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <style>
-        body { padding-top:50px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Git Workshop - Message Client</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
 </head>
-<body>
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Git Workshop</h1>
-        </div>
+<body ng-app="simpleApp">
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Git Workshop</h1>
+      <h1>Simple Messages Client</h1>
     </div>
+  </div>
+  <div class="container" ng-controller="MessagesCtrl">
+  <!--<td><a href class="btn btn-default btn-sm" ng-click="cart.addArticle(article);">Add</a></td>-->
 
+  <div class="container">Filter: <input type="text" ng-model="search"></div><br />
+  <div class="container">
+    <table class="table" >
+      <tr >
+        <th>Id</th>
+        <th>Title</th>
+        <th>Message</th>
+        <th>Created by</th>
+      </tr>
+      <tr ng-repeat="message in messages | filter:search">
+        <td>{{message.id}}</td>
+        <td>{{message.title}}</td>
+        <td>{{message.body}}</td>
+        <td>{{message.sender}}</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>

@@ -2,13 +2,13 @@
   "name": "gitworkshop",
   "version": "1.0.1",
   "description": "sample repository to explain versioning, documentation and merge issues",
-  "main": "src/app.js",
+  "main": "src/service.js",
   "private": true,
   "directories": {
     "doc": "doc"
   },
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/service.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

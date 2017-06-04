@@ -1,0 +1,35 @@
+{
+  "name": "gitworkshop",
+  "version": "1.0.0",
+  "description": "sample repository to explain versioning, documentation and merge issues",
+  "main": "src/app.js",
+  "private": true,
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blndev/GitWorkshop.git"
+  },
+  "keywords": [
+    "git",
+    "merge",
+    "nodejs",
+    "service",
+    "expressjs"
+  ],
+  "author": "blndev",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/blndev/GitWorkshop/issues"
+  },
+  "homepage": "https://github.com/blndev/GitWorkshop",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}

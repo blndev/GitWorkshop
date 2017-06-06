@@ -1,21 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Sample Site</title>
+  <meta charset="UTF-8">
+  <title>Git Workshop - Message Client</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <style>
-        body { padding-top:50px; }
-    </style>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <style>
+
+  </style>
 </head>
-<body>
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Git Workshop</h1>
-        </div>
+<body ng-app="simpleApp" ng-controller="MessagesCtrl">
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Git Workshop</h1>
+      <h1><span class="glyphicon glyphicon-hand-right" style="forecolor:00ff00" aria-hidden="true"></span>&nbsp;Simple Messages Client</h1>
+      <span ng-cloak class="label label-success" ng-show="version">Service Version {{version}}</span>
+      <span class="label label-danger" ng-hide="version">No Service Version Connection</span>
     </div>
+  </div>
 
+  <div class="container" ng-cloak>
+    <div class="alert alert-warning alert-dismissible" role="alert" ng-show="error.errorCode > 0">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> there was an request error ({{error.errorCode}}). Message: {{error.errorMessage}}
+    </div>
+  </div>
+
+  <div class="container" ng-cloak>
+    <p>
+
+      <p>Click on the button to toggle between showing and hiding content.</p>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#newMessageContainer">New Message</button>
+    </p>
+    <div ng-model="newMessage" id="newMessageContainer" class="collapse">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-newMessage.title">1.</span>
+        <input type="text" class="form-control" placeholder="a short title" aria-describedby="basic-newMessage.title" ng-model="newMessage.title">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-newMessage.body">2.</span>
+        <input type="multiline" class="form-control" placeholder="Content of the Message" aria-describedby="basic-newMessage.body" ng-model="newMessage.body">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-newMessage.sender">3.</span>
+        <input type="text" class="form-control" placeholder="Your name" aria-describedby="basic-newMessage.sender" ng-model="newMessage.sender">
+      </div>
+      <br>
+      <button ng-click="addNew()">Add</button><br /><br /><br />
+    </div>
+  </div>
+
+  <!--<td><a href class="btn btn-default btn-sm" ng-click="cart.addArticle(article);">Add</a></td>-->
+
+  <div class="container" ng-cloak>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-search">Filter</span>
+      <input type="text" class="form-control" placeholder="" aria-describedby="basic-search" ng-model="search" /><br />
+    </div>
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Message</th>
+        <th>Created by</th>
+      </tr>
+      <tr ng-repeat="message in messages | filter:search">
+        <td>{{message.id}}</td>
+        <td>{{message.title}}</td>
+        <td>{{message.body}}</td>
+        <td>{{message.sender}}</td>
+      </tr>
+    </table>
+    <label>Last update {{lastUpdate}}</label>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>

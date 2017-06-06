@@ -20,16 +20,15 @@ var apiPathMessagesReset = apiPath + '/all';
 
 var messagesDB = [];
 
-/* new function for branch "feature_basicWebClient"
+
 //link the folder html to "/"
 var htmlPath = path.join(__dirname, 'html');
 console.log('use html from folder', htmlPath);
 app.use(express.static(htmlPath));
-*/
+
 
 //replace by /help while implementing feature_basicWebClient
-//app.get('/help', function(req, res) {
-app.get('/', function(req, res) {
+app.get('/help', function(req, res) {
   res.send('Please use GET /messages/ to recieve messages and POST /messages/ to set some');
 });
 

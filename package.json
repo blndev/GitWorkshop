@@ -1,6 +1,6 @@
 {
   "name": "gitworkshop",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "sample repository to explain versioning, documentation and merge issues",
   "main": "src/service.js",
   "private": true,
